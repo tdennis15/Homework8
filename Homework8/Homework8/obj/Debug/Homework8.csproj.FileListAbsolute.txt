@@ -40,3 +40,7 @@ O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\obj\Debug\Homework8.csproj
 O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\obj\Debug\Homework8.csproj.CoreCompileInputs.cache
 O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\obj\Debug\Homework8.dll
 O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\obj\Debug\Homework8.pdb
+O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\bin\EntityFramework.dll
+O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\bin\EntityFramework.SqlServer.dll
+O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\bin\EntityFramework.xml
+O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\bin\EntityFramework.SqlServer.xml
