@@ -1,31 +1,31 @@
-﻿@{
+﻿@model IEnumerable<Homework8.Models.Genre>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    Welcome to the home page
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+<!--Here we will be using JQuery and Ajax to render a dynamic page that will include details about the artist, and the artwork they created.
+    Note that most of the background work will be segregated to additional files in order to preserve separation of code types since 
+    There will be Html, JQuery and AJAX calls. Having it all on one page is convienent but a terrible idea. 
+    -->
+
+
+
+
+<!--The below function in Razor is a loop to go over the items in Models and determine what buttons will be needed for the Genres on the 
+    Home page. This implements a Javascript file that can be found in the scripts folder. This has HTML, Razor, Javascript, and AJAX in one function-->
+@foreach(var item in Model.ToList())
+{
+    <button onclick="JavaAJAX_Call('@item.Genre1');">@item.Genre1</button>
+}
+<br />
+<br />
+
+<!--Landing section for data that gets returned by clicking a button above (auto genereated buttons)
+    thanks toJAKE HATFIELD for this brilliant solution.-->
+
+<div id="landing_zone"></div>
