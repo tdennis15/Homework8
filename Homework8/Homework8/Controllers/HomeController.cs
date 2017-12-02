@@ -11,6 +11,8 @@ namespace Homework8.Controllers
     {
         private ArtContext db = new ArtContext();
 
+        //GET: /Index
+        //Return Genres
         public ActionResult Index()
         {
 
@@ -19,39 +21,31 @@ namespace Homework8.Controllers
 
         }
 
+        //GET: /Artists
+        //Return Artists
         public ActionResult Artists()
         {
             var artists = db.Artists;
             return View(artists);
         }
 
-        // GET: Artists/Artworks
+        // GET: /Artworks
         public ActionResult Artworks()
         {
             var artworks = db.ArtWorks;
             return View(artworks);
         }
 
-        // GET: Artists/Classifications
+        // GET: /Classifications
         public ActionResult Classifications()
         {
             var classifications = db.Classifications;
             return View(classifications);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+       
 
-            return View();
-        }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
 
 
         /// <summary>

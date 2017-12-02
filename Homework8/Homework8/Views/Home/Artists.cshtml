@@ -8,9 +8,8 @@
 @foreach (var item in Model.ToList())
 {
     <h4>
-        @Html.ValueForModel(item.ArtistName)
+        @Html.ValueForModel(item.ArtistName) <br />
    
 </h4>
 }
-
-<h3</h3>
+<h3>@Html.ActionLink("Add an Artist", "ArtistCreate","Create",null,null)</h3>
