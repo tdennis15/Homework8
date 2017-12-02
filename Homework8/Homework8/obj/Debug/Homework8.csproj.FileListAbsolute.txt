@@ -36,7 +36,6 @@ O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\bin\Microsoft.AI.Dependenc
 O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\bin\Microsoft.AI.ServerTelemetryChannel.xml
 O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\bin\Microsoft.AI.WindowsServer.xml
 O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\bin\Microsoft.AI.Web.xml
-O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\obj\Debug\Homework8.csprojResolveAssemblyReference.cache
 O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\obj\Debug\Homework8.csproj.CoreCompileInputs.cache
 O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\obj\Debug\Homework8.dll
 O:\Fall 2017\CS 460\HW8\Homework8\Homework8\Homework8\obj\Debug\Homework8.pdb

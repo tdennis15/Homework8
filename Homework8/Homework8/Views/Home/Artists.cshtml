@@ -9,7 +9,9 @@
 {
     <h4>
         @Html.ValueForModel(item.ArtistName) <br />
-   
-</h4>
+        @Html.ActionLink("Details", "/Details/" + item.ID)
+        @Html.ActionLink("Edit", "/Edit/" + item.ID)
+        @Html.ActionLink("Delete", "/Delete/" + item.ID)
+    </h4>
 }
-<h3>@Html.ActionLink("Add an Artist", "ArtistCreate","Create",null,null)</h3>
+<h3>@Html.ActionLink("Add an Artist", "ArtistCreate")</h3>

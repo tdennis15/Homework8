@@ -35,5 +35,10 @@ namespace Homework8.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ArtWork> ArtWorks1 { get; set; }
+
+        public static implicit operator Artist(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

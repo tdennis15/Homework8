@@ -150,7 +150,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CreateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,7 +206,10 @@
     <Content Include="Views\Home\Artists.cshtml" />
     <Content Include="Views\Home\Artworks.cshtml" />
     <Content Include="Views\Home\Classifications.cshtml" />
-    <Content Include="Views\Create\ArtistCreate.cshtml" />
+    <Content Include="Views\Home\ArtistCreate.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -43,8 +43,110 @@ namespace Homework8.Controllers
             return View(classifications);
         }
 
-       
 
+        // GET: Create an artist
+        public ActionResult ArtistCreate()
+        {
+            return View();
+        }
+
+        // POST: creation of artists
+        [HttpPost]
+        public ActionResult ArtistCreate(FormCollection collection)
+        {
+            try
+            {
+                Artist artist = db.Artists.Create();
+
+                artist.ArtistName = collection["artistName"];
+                artist.BirthCity = collection["birthCity"];
+                artist.BirthCountry = collection["birthCountry"];
+                artist.DOB = collection["birthDate"];
+
+                db.Artists.Add(artist);
+                db.SaveChanges();
+
+                return RedirectToAction("Artists");
+            }
+            catch
+            {
+                return View("Artists");
+            }
+        }
+
+
+        // GET: Details about an artist 
+        public ActionResult Details(int id)
+        {
+            var artist = db.Artists.Where(a => a.ID == id).FirstOrDefault();
+            return View(artist);
+        }
+
+
+        // GET: Edit Artist Details
+        public ActionResult Edit(int id)
+        {
+            ViewBag.aName = db.Artists.Where(a => a.ID == id).FirstOrDefault().ArtistName;
+            ViewBag.aCity = db.Artists.Where(a => a.ID == id).FirstOrDefault().BirthCity;
+            ViewBag.aCountry = db.Artists.Where(a => a.ID == id).FirstOrDefault().BirthCountry;
+            ViewBag.aDOB = db.Artists.Where(a => a.ID == id).FirstOrDefault().DOB;
+            return View();
+        }
+
+        // POST: Update the database with the posted details
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                var artistToUpdate = db.Artists.Find(id);
+
+                artistToUpdate.ArtistName = collection["artistName"];
+                artistToUpdate.BirthCity = collection["birthCity"];
+                artistToUpdate.BirthCountry = collection["BirthCountry"];
+                artistToUpdate.DOB = collection["birthDate"];
+
+                db.SaveChanges();
+
+                return RedirectToAction("Details/" + id);
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Form to delete an artist
+        public ActionResult Delete(int id)
+        {
+            var artist = db.Artists.Where(a => a.ID == id).FirstOrDefault();
+
+            ViewBag.aName = db.Artists.Where(a => a.ID == id).FirstOrDefault().ArtistName;
+            ViewBag.aCity = db.Artists.Where(a => a.ID == id).FirstOrDefault().BirthCity;
+            ViewBag.aCountry = db.Artists.Where(a => a.ID == id).FirstOrDefault().BirthCountry;
+            ViewBag.aDOB = db.Artists.Where(a => a.ID == id).FirstOrDefault().DOB;
+
+            return View(artist);
+        }
+
+        // POST: Deleting the artist from DB
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                var artist = db.Artists.Find(id);
+
+                db.Artists.Remove(artist);
+                db.SaveChanges();
+
+                return RedirectToAction("Artists");
+            }
+            catch
+            {
+                return View();
+            }
+        }
 
 
 

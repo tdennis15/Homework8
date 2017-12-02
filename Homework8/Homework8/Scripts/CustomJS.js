@@ -26,7 +26,7 @@ function MakeAJAX_Call(genre) {
             returnData.arr.forEach(function (item) {
                 $('#landing_zone').append(item);
             }
-            )
+            );
         }
     });
 }
