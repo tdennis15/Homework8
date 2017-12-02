@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<Homework8.Models.Genre>
 
-@{
-    ViewBag.Title = "Home Page";
+<script type="text/javascript" src="~/Scripts/CustomJS.js"></script>
+
+@{    ViewBag.Title = "Home Page";
 }
+
+
 
 <div class="jumbotron">
     Welcome to the home page
@@ -18,14 +21,20 @@
 
 <!--The below function in Razor is a loop to go over the items in Models and determine what buttons will be needed for the Genres on the 
     Home page. This implements a Javascript file that can be found in the scripts folder. This has HTML, Razor, Javascript, and AJAX in one function-->
-@foreach(var item in Model.ToList())
-{
-    <button onclick="JavaAJAX_Call('@item.Genre1');">@item.Genre1</button>
-}
+<div class="row">
+    @foreach (var item in Model.ToList())
+    {
+       <div class="col-md-3"> 
+           <button onclick="JavaAJAX_Call('@item.Genre1');">@item.Genre1</button>
+       </div> 
+    }
+
+</div>
+
 <br />
 <br />
 
 <!--Landing section for data that gets returned by clicking a button above (auto genereated buttons)
-    thanks toJAKE HATFIELD for this brilliant solution.-->
+    thanks to JAKE HATFIELD for this brilliant solution.-->
 
 <div id="landing_zone"></div>

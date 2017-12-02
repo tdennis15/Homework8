@@ -13,9 +13,9 @@ function MakeAJAX_Call(genre) {
 
     //ajax call
     $.ajax({
-        //accessing the data inside our Genre view
-        url: "/Home/Genre",
-
+        //accessing the data inside our Genre view by the controller
+        
+        url: "/Home/GenreResult/",
         //finding fields of genre
         data: { genre: genre },
         type: "POST",

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Homework8.Models.Classification>
+@{
+    ViewBag.Title = "Classifications";
+}
+
+<h2>Classifications</h2>
+
+
+@foreach (var item in Model.ToList())
+{
+    <h4>@Html.ValueForModel(item.Genre + " : " + item.ArtWork.Title)</h4>
+}

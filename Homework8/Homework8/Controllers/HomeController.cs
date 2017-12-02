@@ -16,6 +16,27 @@ namespace Homework8.Controllers
 
             var genres = db.Genres;
             return View(genres);
+
+        }
+
+        public ActionResult Artists()
+        {
+            var artists = db.Artists;
+            return View(artists);
+        }
+
+        // GET: Artists/Artworks
+        public ActionResult Artworks()
+        {
+            var artworks = db.ArtWorks;
+            return View(artworks);
+        }
+
+        // GET: Artists/Classifications
+        public ActionResult Classifications()
+        {
+            var classifications = db.Classifications;
+            return View(classifications);
         }
 
         public ActionResult About()
@@ -42,7 +63,7 @@ namespace Homework8.Controllers
         /// </summary>
 
         [HttpPost]
-        public JsonResult Genre(string genre)
+        public JsonResult GenreResult(string genre)
         {
             var artwork = db.Genres.Find(genre).Classifications.ToList().OrderBy(t => t.ArtWork.Title).Select(a => new { aw = a.AWID, awa = a.ArtWork.ArtistID }).ToList();
             string[] artworkCreator = new string[artwork.Count()];

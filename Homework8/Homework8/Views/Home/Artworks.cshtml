@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Homework8.Models.ArtWork>
+@{
+    ViewBag.Title = "Artworks";
+}
+
+<h2>Artworks</h2>
+
+@foreach (var item in Model.ToList())
+{
+    <h4>@Html.ValueForModel(item.Title + " by " + item.Artist.ArtistName)</h4>
+}

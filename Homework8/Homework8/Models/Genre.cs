@@ -1,4 +1,4 @@
-namespace Homework8.Models
+﻿namespace Homework8.Models
 {
     using System;
     using System.Collections.Generic;
