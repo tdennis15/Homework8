@@ -4,63 +4,20 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<<h2>Edit</h2>
 
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Artist</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ArtistName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ArtistName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ArtistName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.BirthCity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BirthCity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BirthCity, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.BirthCountry, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BirthCountry, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BirthCountry, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<form method="POST" onsubmit="return validateForm();">
+    <display for="Artist Name">Artist's Name</display>
+    <input type="text" name="artistName" id="artistName" title="Artist Name" value="@(ViewBag.aName == null ? "" : ViewBag.aName)" maxlength="50" />
+    <br /><br />
+    <dispay for="Birth City">Birth City</dispay>
+    <input type="text" name="birthCity" id="birthCity" title="Birth City" value="@(ViewBag.aCity == null ? "" : ViewBag.aCity)" />
+    <br /><br />
+    <dispay for="Birth Country">Birth Country</dispay>
+    <input type="text" name="birthCountry" id="birthCountry" title="Birth Country" value="@(ViewBag.aCountry == null ? "" : ViewBag.aCountry)" />
+    <br /><br />
+    <display for="Birth Date">Birth Date</display>
+    <input type="date" name="birthDate" id="birthDate" title="Birth Date" value="@(ViewBag.aDOB == null ? "" : ViewBag.aDOB)" />
+    <br /><br />
+    <input type="submit" value="Update" />
+</form>

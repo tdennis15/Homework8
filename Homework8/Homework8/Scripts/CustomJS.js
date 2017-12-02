@@ -8,7 +8,7 @@ function JavaAJAX_Call(genre) {
         data: { genre: genre },
         type: "POST",
         //datatype: "json",
-        success: function (returnData) { //On Success, Return Images into a grid
+        success: function (returnData) { 
             returnData.arr.forEach(function (item) {
                 $('#landing_zone').append(item);
             }
