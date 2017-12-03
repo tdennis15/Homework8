@@ -158,22 +158,13 @@ namespace Homework8.Controllers
         /// This is after the CustomJS.js file has asked for a return. 
         /// </summary>
 
-        // POST: Artists/Genre
+        // POST: Home/Genre
         [HttpPost]
         public JsonResult Genre(string genre)
         {
-            var artwork = db.Genres.Find(genre).Classifications.ToList().OrderBy(t => t.ArtWork.Title).Select(a => new { aw = a.AWID, awa = a.ArtWork.ID }).ToList();
-            string[] artworkCreator = new string[artwork.Count()];
-            for (int i = 0; i < artworkCreator.Length; ++i)
-            {
-                artworkCreator[i] = $"<ul>{db.ArtWorks.Find(artwork[i].aw).Title} by {db.Artists.Find(artwork[i].awa).ArtistName}</ul>";
-            }
-            var data = new
-            {
-                arr = artworkCreator
-            };
+            var art = db.Classifications.Find(genre);
 
-            return Json(data, JsonRequestBehavior.AllowGet);
+            return Json(, JsonRequestBehavior.AllowGet);
         }
     }
 }
