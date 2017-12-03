@@ -2,8 +2,12 @@
 @{
     ViewBag.Title = "Artworks";
 }
+<div class="jumbotron">
+    <h2>Artworks available for smelling upon request (and waiver sign)</h2>
+</div>
 
-<h2>Artworks</h2>
+
+<!--A for loop to iterate over every item found in the ArtWork table and return the title and the name of the artist-->
 
 @foreach (var item in Model.ToList())
 {

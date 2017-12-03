@@ -1,20 +1,29 @@
 ﻿
 
-function JavaAJAX_Call(genre) {
+function JavaAJAX_Call(genreID) {
     document.getElementById('landing_zone').innerHTML = null;
-
+    console.log(genreID);
+    var source = "/Home/GenreResult?id=" + genreID;
+    console.log(source);
     $.ajax({
-        url: "/Home/Genre/",
-        data: { genre: genre },
-        type: "POST",
-        datatype: "json",
-        success: function (returnData) { 
-            returnData.arr.forEach(function (item) {
-                $('#landing_zone').append(item);
-            }
-            );
+        type: "GET",
+        dataType: "json",
+        url: source,
+        success: function (data) {
+            returnToHTML(data);
+        },
+        error: function (data) {
+            alert("There was an error. Try again please!");
         }
     });
+}
+
+function returnToHTML(data) {
+    $("#landing_zone").empty();
+    $.each(data, function (i, field) {
+        $("#landing_zone").append("<p>" + field["Title"] + " by " + field["ArtistName"] + "</p>");
+    });
+    $("#landing_zone").css("display", "block");
 }
 
 
@@ -37,7 +46,7 @@ function validateForm() {
         return false;
     }
     else if (DOB[0] === yyyy) {
-        if (DOB[1] > mm || (DOB[1] === mm && DOB[2] > dd)) {
+        if (DOB[1] > mm || ((DOB[1] === mm) && (DOB[2] > dd))) {
             alert("Birth Date can't be in the future!");
             return false;
         }

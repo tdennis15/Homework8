@@ -1,4 +1,4 @@
-﻿namespace Homework8.Models
+namespace Homework8.Models
 {
     using System;
     using System.Collections.Generic;
@@ -15,8 +15,10 @@
             Classifications = new HashSet<Classification>();
         }
 
-        [Key]
+        public int GenreID { get; set; }
+
         [Column("Genre")]
+        [Required]
         [StringLength(24)]
         public string Genre1 { get; set; }
 

@@ -27,22 +27,23 @@ CREATE TABLE dbo.ArtWorks
 
 CREATE TABLE dbo.Genre
 (
+	GenreID Int IDENTITY(1,1) NOT NULL,
 	Genre	VARCHAR(24) NOT NULL,
-	CONSTRAINT [PK_dbo.Genre] PRIMARY KEY CLUSTERED (Genre ASC)
+	CONSTRAINT [PK_dbo.Genre] PRIMARY KEY CLUSTERED (GenreID ASC)
 );
 
 CREATE TABLE dbo.Classifications (
 	CID				INT IDENTITY(1,1) NOT NULL,
 	AWID			INT NOT NULL,
-	Genre			VARCHAR(24) NOT NULL,
+	GenreID			INT NOT NULL,
 
 	CONSTRAINT[PK_dbo.class] PRIMARY KEY CLUSTERED (CID ASC),
 	CONSTRAINT[FK_dbo.ArtWorks_Class] FOREIGN KEY (AWID)
 		REFERENCES dbo.ARTWORKS (ID)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE,
-	CONSTRAINT[FK_dbo.GENRES_CLASSIFICATIONS] FOREIGN KEY (Genre)
-		REFERENCES dbo.Genre (Genre)
+	CONSTRAINT[FK_dbo.GENRES_CLASSIFICATIONS] FOREIGN KEY (GenreID)
+		REFERENCES dbo.Genre (GenreID)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
@@ -67,15 +68,15 @@ Insert Into dbo.Genre(Genre) Values
 	('Portrait'),
 	('Renaissance');
 
-Insert INTO dbo.Classifications(AWID, Genre) Values
-	('1','Tesselation'),
-	('2','Tesselation'),
-	('2','Surrealism'),
-	('3','Portrait'),
-	('3','Renaissance'),
-	('4','Renaissance'),
-	('5','Tesselation'),
-	('6','Surrealism');
+Insert INTO dbo.Classifications(AWID, GenreID) Values
+	('1','1'),
+	('2','1'),
+	('2','2'),
+	('3','3'),
+	('3','4'),
+	('4','4'),
+	('5','1'),
+	('6','2');
 
 
 	GO

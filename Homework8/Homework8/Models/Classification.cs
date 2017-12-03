@@ -13,12 +13,10 @@ namespace Homework8.Models
 
         public int AWID { get; set; }
 
-        [Required]
-        [StringLength(24)]
-        public string Genre { get; set; }
+        public int GenreID { get; set; }
 
         public virtual ArtWork ArtWork { get; set; }
 
-        public virtual Genre Genre1 { get; set; }
+        public virtual Genre Genre { get; set; }
     }
 }

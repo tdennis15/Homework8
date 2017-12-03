@@ -120,7 +120,9 @@ namespace Homework8.Controllers
         public ActionResult Delete(int id)
         {
             var artist = db.Artists.Where(a => a.ID == id).FirstOrDefault();
-
+            
+            //viewbags so that we can populate the fields in our edit field so that data that wont be changed
+            // doesnt have to be retyped
             ViewBag.aName = db.Artists.Where(a => a.ID == id).FirstOrDefault().ArtistName;
             ViewBag.aCity = db.Artists.Where(a => a.ID == id).FirstOrDefault().BirthCity;
             ViewBag.aCountry = db.Artists.Where(a => a.ID == id).FirstOrDefault().BirthCountry;
@@ -151,21 +153,31 @@ namespace Homework8.Controllers
 
 
         /// <summary>
-        /// Using the following link to understand what the controller and ajax and jquery were needing to talk helped a lot
-        ///     https://stackoverflow.com/questions/25304610/how-to-get-a-list-from-mvc-controller-to-view-using-jquery-ajax
-        /// Since we need to pass a list to the home page instead of a single value means we need to use arrays and loops
-        /// to iterate over the values and convert to a means that the system can handle. 
-        /// This is after the CustomJS.js file has asked for a return. 
+        ///Since we get an integer relating to the ID of a particular genre we can use that to search 
+        ///for the various pieces of artwork that correspond to this key. 
+        ///Thus using a little bit of lambda we can cook a good stew.
         /// </summary>
 
         // POST: Home/Genre
-        [HttpPost]
-        public JsonResult Genre(string genre)
+        [HttpGet]
+        public JsonResult GenreResult(int? id)
         {
-            var art = db.Classifications.Find(genre);
+            //data checking for sanity
+            if (id == null)
+            {
+                return null;
+            }
 
-            return Json(, JsonRequestBehavior.AllowGet);
+            //our JSON object that will be returned
+            var artCollection = db.Genres.Where(g => g.GenreID == id) //getting the Genre from the ID
+                                .Select(x => x.Classifications) //Getting the classifications that have that genre
+                                .FirstOrDefault()//making sure we can find the head of the list
+                                .Select(x => new { x.ArtWork.Title, x.ArtWork.Artist.ArtistName }) //Get the title of the artwork and the artist name
+                                .OrderBy(x => x.Title) //abc ordering
+                                .ToList(); //return it as a list type instead of an enumerable.
+            return Json(artCollection, JsonRequestBehavior.AllowGet); //return the object to the CustomJS.js JavaAJAX_Call function.
         }
-    }
+    
+}
 }
     

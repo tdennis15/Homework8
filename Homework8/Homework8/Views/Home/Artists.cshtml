@@ -2,9 +2,11 @@
 @{
     ViewBag.Title = "Artists";
 }
+<div class="jumbotron">
+    <h2>Artists</h2>
+</div>
 
-<h2>Artists</h2>
-
+<!--A for loop to iterate over the rows of Artist table and return the artist name and the CRUD links-->
 @foreach (var item in Model.ToList())
 {
     <h2>

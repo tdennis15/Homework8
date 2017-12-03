@@ -1,9 +1,10 @@
 ﻿@model IEnumerable<Homework8.Models.Genre>
 
-@section Javascript
-    {
+@section Javascript{
     <script type="text/javascript" src="~/Scripts/CustomJS.js"></script>
+
     }
+    
 
 
 @{    ViewBag.Title = "Home Page";
@@ -12,7 +13,7 @@
 
 
 <div class="jumbotron">
-    Welcome to the home page
+    Welcome to the Ob<em>SCENE</em> Art Gallery
 </div>
 
 <!--Here we will be using JQuery and Ajax to render a dynamic page that will include details about the artist, and the artwork they created.
@@ -20,7 +21,14 @@
     There will be Html, JQuery and AJAX calls. Having it all on one page is convienent but a terrible idea. 
     -->
 
-
+<div>
+   <p>
+    Selecting an option from below will magically (javacriptly) generate a list of the various pieces of art we have to display under each Genre.
+      <br />
+       In fact the buttons themselves were generated. Don't lick the mushrooms, they are for demonstration only. <br />
+      <b>Can't avoid the magic now.</b> 
+   </p>
+</div>
 
 
 <!--The below function in Razor is a loop to go over the items in Models and determine what buttons will be needed for the Genres on the 
@@ -29,7 +37,7 @@
     @foreach (var item in Model.ToList())
     {
        <div class="col-md-3"> 
-           <button onclick="JavaAJAX_Call('@item.Genre1');">@item.Genre1</button>
+           <button onclick="JavaAJAX_Call('@item.GenreID');">@item.Genre1</button>
        </div> 
     }
 

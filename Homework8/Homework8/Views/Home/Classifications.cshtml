@@ -2,11 +2,14 @@
 @{
     ViewBag.Title = "Classifications";
 }
+<div class="jumbotron">
+    <h2>Classifications</h2>
 
-<h2>Classifications</h2>
+</div>
 
 
+<!--A foreach loop to iterate over the rows the classification table and detail the genres attached to each art work-->
 @foreach (var item in Model.ToList())
 {
-    <h4>@Html.ValueForModel(item.Genre + " : " + item.ArtWork.Title)</h4> <br />
+    <h4>@Html.ValueForModel(item.ArtWork.Title + " is a demonstration of excellent " + item.Genre.Genre1 + " styling.")</h4> <br />
 }

@@ -35,18 +35,9 @@ namespace Homework8.Models
                 .WithRequired(e => e.ArtWork)
                 .HasForeignKey(e => e.AWID);
 
-            modelBuilder.Entity<Classification>()
-                .Property(e => e.Genre)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Genre>()
                 .Property(e => e.Genre1)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Genre>()
-                .HasMany(e => e.Classifications)
-                .WithRequired(e => e.Genre1)
-                .HasForeignKey(e => e.Genre);
         }
     }
 }
